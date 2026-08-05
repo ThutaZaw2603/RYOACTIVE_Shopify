@@ -1298,7 +1298,7 @@
                     "gallery": {
                       "type": "_product-card-gallery",
                       "settings": {
-                        "image_ratio": "adapt",
+                        "image_ratio": "portrait",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
@@ -1392,7 +1392,7 @@
                     "gallery": {
                       "type": "_product-card-gallery",
                       "settings": {
-                        "image_ratio": "adapt",
+                        "image_ratio": "portrait",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
@@ -1486,7 +1486,7 @@
                     "gallery": {
                       "type": "_product-card-gallery",
                       "settings": {
-                        "image_ratio": "adapt",
+                        "image_ratio": "portrait",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
@@ -1580,7 +1580,7 @@
                     "gallery": {
                       "type": "_product-card-gallery",
                       "settings": {
-                        "image_ratio": "adapt",
+                        "image_ratio": "portrait",
                         "border": "none",
                         "border_width": 1,
                         "border_opacity": 100,
