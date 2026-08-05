@@ -11,6 +11,26 @@
   {% endstyle %}
 {% endif %}
 
+{% if block_settings.rotation != 0 %}
+  {% style %}
+    .icon-block-{{ block.id }} {
+      transform: rotate({{ block_settings.rotation }}deg);
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if block_settings.hover_rotation != blank and block_settings.hover_rotation != block_settings.rotation %}
+  {% style %}
+    .icon-block-{{ block.id }} {
+      transition: transform 0.3s ease;
+    }
+
+    .collection-card:hover .icon-block-{{ block.id }} {
+      transform: rotate({{ block_settings.hover_rotation }}deg);
+    }
+  {% endstyle %}
+{% endif %}
+
 {% capture icon %}
   {% render 'icon-or-image',
     icon: block_settings.icon,
@@ -309,6 +329,26 @@
       "step": 2,
       "unit": "px",
       "default": 24
+    },
+    {
+      "type": "range",
+      "id": "rotation",
+      "label": "Rotation",
+      "min": -180,
+      "max": 180,
+      "step": 5,
+      "unit": "deg",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "hover_rotation",
+      "label": "Rotation (hover)",
+      "min": -180,
+      "max": 180,
+      "step": 5,
+      "unit": "deg",
+      "default": 0
     },
     {
       "type": "url",

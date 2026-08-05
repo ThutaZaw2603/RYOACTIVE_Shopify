@@ -15,6 +15,7 @@
     --overlay-color: {{ settings.overlay_color | default: 'rgb(0 0 0 / var(--opacity-25))' }};
     --overlay-color--end: {{ settings.overlay_color | color_modify: 'alpha', 0 | default: 'rgb(0 0 0 / 0)' }};
     --overlay-direction: {{ settings.gradient_direction | default: 'to top' }};
+    {%- if settings.overlay_hover_color != blank %} --overlay-hover-color: {{ settings.overlay_hover_color }};{% endif -%}
     {%- if settings.border_radius %} --overlay-border-radius: {{ settings.border_radius | default: '0' }}px;{% endif -%}
   "
 ></div>
@@ -26,6 +27,7 @@
     z-index: var(--overlay-layer);
     pointer-events: none;
     border-radius: var(--overlay-border-radius, 0);
+    transition: background-color 0.3s ease;
   }
 
   .overlay--solid {
@@ -34,5 +36,9 @@
 
   .overlay--gradient {
     background: linear-gradient(var(--overlay-direction), var(--overlay-color), var(--overlay-color--end));
+  }
+
+  .collection-card:hover .overlay--solid {
+    background: var(--overlay-hover-color, var(--overlay-color));
   }
 {% endstylesheet %}

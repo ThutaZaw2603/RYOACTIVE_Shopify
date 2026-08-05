@@ -68,6 +68,8 @@
       assign ratio = '1 / 1'
     when 'adapt'
       assign ratio = image_resource.aspect_ratio
+    when 'fixed'
+      assign ratio = 'auto'
   endcase
 
   if ratio == 0 or ratio == null
@@ -126,6 +128,12 @@
     .collection-card[data-block-id="{{ parent_block_id }}"] {
       --ratio: {{ ratio }};
     }
+    {% if block_settings.image_ratio == 'fixed' %}
+      .collection-card[data-block-id="{{ parent_block_id }}"].collection-card--image-bg {
+        aspect-ratio: auto;
+        height: {{ block_settings.image_height | default: 500 }}px;
+      }
+    {% endif %}
   {% endif %}
 {% endstyle %}
 

@@ -37,6 +37,7 @@
   --carousel-columns: {{ section.settings.columns }};
   --carousel-mobile-columns: {{ section.settings.mobile_columns }};
   {% render 'gap-style', value: section.settings.columns_gap, name: 'carousel-gap' %}
+  --peek-next-slide-size: {{ section.settings.peek_next_slide | default: 48 }}px;
   {% render 'spacing-style', settings: block.settings %}
   {% render 'border-override', settings: block.settings %}
 {% endcapture %}
