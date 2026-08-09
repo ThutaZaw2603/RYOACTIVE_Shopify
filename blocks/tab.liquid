@@ -1,0 +1,150 @@
+
+
+{%- doc -%}
+  Renders one tab (its button + its linked collection's product carousel
+  panel) for the shop-by-tabs section. Both pieces are wrapped in a
+  display:contents element so they act as direct grid items of the parent
+  shop-tabs-component and land in the correct column via CSS grid-column,
+  even though they're both emitted from the same block instance.
+{%- enddoc -%}
+
+{% liquid
+  assign tab_label = block.settings.label | default: block.settings.collection.title
+  assign tab_collection = block.settings.collection
+  assign is_current = false
+  if block.id == section.blocks.first.id
+    assign is_current = true
+  endif
+%}
+
+<div class="shop-tabs__block" {{ block.shopify_attributes }}>
+  <button
+    type="button"
+    class="shop-tabs__tab"
+    id="shop-tabs__tab-{{ block.id }}"
+    role="tab"
+    aria-selected="{{ is_current }}"
+    aria-controls="shop-tabs__panel-{{ block.id }}"
+  >
+    {{ tab_label }}
+  </button>
+
+  <div
+    class="shop-tabs__panel"
+    id="shop-tabs__panel-{{ block.id }}"
+    role="tabpanel"
+    aria-labelledby="shop-tabs__tab-{{ block.id }}"
+    {% unless is_current %}
+      hidden
+    {% endunless %}
+  >
+    {% capture list_items %}
+      {% if tab_collection != blank %}
+        {% for product in tab_collection.products limit: section.settings.max_products %}
+          <div class="resource-list__item">
+            {% content_for 'block',
+              type: '_product-card',
+              id: 'static-product-card',
+              closest.product: product,
+              product_view_context: 'collection'
+            %}
+          </div>
+          {% unless forloop.last %}<!--@list/split-->{% endunless %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..section.settings.max_products) %}
+          <div class="resource-list__item">
+            {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: null %}
+          </div>
+          {% unless forloop.last %}<!--@list/split-->{% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% endcapture %}
+
+    {% assign list_items_array = list_items | strip | split: '<!--@list/split-->' %}
+
+    {% render 'resource-list',
+      list_items: list_items,
+      list_items_array: list_items_array,
+      settings: section.settings,
+      carousel_ref: 'shopTabsCarousel' | append: block.id,
+      slide_count: section.settings.max_products,
+      content_type: 'products',
+      test_id: 'shop-tabs-carousel'
+    %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .shop-tabs__block {
+    display: contents;
+  }
+
+  .shop-tabs__tab {
+    grid-column: 1;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-size: var(--font-size--2xl);
+    color: currentColor;
+    opacity: var(--disabled-opacity);
+    cursor: pointer;
+
+    &[aria-selected='true'] {
+      opacity: 1;
+      font-weight: 600;
+    }
+  }
+
+  .shop-tabs__panel {
+    grid-column: 2;
+    grid-row: 1;
+    /* Absolutely positioning this (while keeping the grid-column/grid-row placement above)
+       keeps it sized and positioned by its grid cell, but stops it from contributing to
+       that row's height — otherwise the tall carousel stretches row 1 and pushes every
+       tab below the first one down to match. */
+    position: absolute;
+    /* Pin the top/left/right edges (for position + width) but leave the bottom edge
+       free — row 1's own natural height is tiny (just the first tab's text), so
+       constraining the bottom too (e.g. via `inset: 0`) clips the carousel to that
+       height instead of letting it grow to its real content height. */
+    top: 0;
+    left: 0;
+    right: 0;
+    min-width: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Tab",
+  "tag": null,
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Tab label",
+      "info": "Leave blank to use the collection's title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab"
+    }
+  ]
+}
+{% endschema %}

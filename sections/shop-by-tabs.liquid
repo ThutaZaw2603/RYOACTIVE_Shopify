@@ -1,0 +1,399 @@
+
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<script
+  src="{{ 'shop-tabs.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="section section--{{ section.settings.section_width }}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="shop-tabs"
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="shop-tabs__heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <shop-tabs-component class="shop-tabs__layout">
+    {% content_for 'blocks' %}
+
+    {% if section.settings.shop_all_link != blank %}
+      <a
+        href="{{ section.settings.shop_all_link }}"
+        class="button button-secondary shop-tabs__shop-all"
+      >
+        {{ section.settings.shop_all_label }}
+      </a>
+    {% endif %}
+  </shop-tabs-component>
+</div>
+
+{% stylesheet %}
+  .shop-tabs__heading {
+    text-align: center;
+    padding-block-end: 24px;
+  }
+
+  shop-tabs-component {
+    display: grid;
+    position: relative;
+    grid-template-columns: minmax(180px, 220px) 1fr;
+    column-gap: var(--gap-xl, 20px);
+    row-gap: var(--gap-md, 16px);
+    align-items: start;
+    /* Without this, the grid stretches the sidebar's auto rows to fill the
+       min-height reserved below for the carousel, spreading extra gap between
+       every tab instead of leaving it as unused space after the last one. */
+    align-content: start;
+    /* Since the panel is position: absolute (see blocks/tab.liquid), it no longer
+       contributes to this grid's height on its own — reserve space for it explicitly
+       so the carousel doesn't overflow past the bottom of the section. shop-tabs.js
+       measures the real visible panel and sets this custom property, since the
+       panel's actual height varies by viewport width; 400px is just a first-paint
+       fallback before JS runs. */
+    min-height: var(--shop-tabs-content-height, 400px);
+  }
+
+  .shop-tabs__shop-all {
+    grid-column: 1;
+    justify-self: start;
+    margin-block-start: var(--gap-lg, 20px);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Shop by tabs",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by Styles"
+    },
+    {
+      "type": "header",
+      "content": "Shop All button"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Button label",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "Products per tab",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "header",
+      "content": "t:content.carousel_navigation"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "t:options.arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "t:options.chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "t:options.arrows_large"
+        },
+        {
+          "value": "chevron_large",
+          "label": "t:options.chevron_large"
+        },
+        {
+          "value": "none",
+          "label": "t:options.none"
+        }
+      ],
+      "default": "arrow"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "t:settings.icon_background",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "circle",
+          "label": "t:options.circle"
+        },
+        {
+          "value": "square",
+          "label": "t:options.square"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by tabs",
+      "category": "t:categories.collections",
+      "settings": {
+        "shop_all_link": "shopify://collections/all"
+      },
+      "blocks": {
+        "tab_1": {
+          "type": "tab",
+          "settings": {
+            "label": "Leggings"
+          },
+          "blocks": {
+            "static-product-card": {
+              "type": "_product-card",
+              "static": true,
+              "settings": {
+                "product_card_gap": 4
+              },
+              "blocks": {
+                "gallery": {
+                  "type": "_product-card-gallery",
+                  "settings": {
+                    "image_ratio": "portrait"
+                  }
+                },
+                "title": {
+                  "type": "product-title"
+                },
+                "price": {
+                  "type": "price"
+                },
+                "swatches": {
+                  "type": "swatches"
+                }
+              },
+              "block_order": ["gallery", "title", "price", "swatches"]
+            }
+          }
+        },
+        "tab_2": {
+          "type": "tab",
+          "settings": {
+            "label": "Shorts"
+          },
+          "blocks": {
+            "static-product-card": {
+              "type": "_product-card",
+              "static": true,
+              "settings": {
+                "product_card_gap": 4
+              },
+              "blocks": {
+                "gallery": {
+                  "type": "_product-card-gallery",
+                  "settings": {
+                    "image_ratio": "portrait"
+                  }
+                },
+                "title": {
+                  "type": "product-title"
+                },
+                "price": {
+                  "type": "price"
+                },
+                "swatches": {
+                  "type": "swatches"
+                }
+              },
+              "block_order": ["gallery", "title", "price", "swatches"]
+            }
+          }
+        },
+        "tab_3": {
+          "type": "tab",
+          "settings": {
+            "label": "Top"
+          },
+          "blocks": {
+            "static-product-card": {
+              "type": "_product-card",
+              "static": true,
+              "settings": {
+                "product_card_gap": 4
+              },
+              "blocks": {
+                "gallery": {
+                  "type": "_product-card-gallery",
+                  "settings": {
+                    "image_ratio": "portrait"
+                  }
+                },
+                "title": {
+                  "type": "product-title"
+                },
+                "price": {
+                  "type": "price"
+                },
+                "swatches": {
+                  "type": "swatches"
+                }
+              },
+              "block_order": ["gallery", "title", "price", "swatches"]
+            }
+          }
+        },
+        "tab_4": {
+          "type": "tab",
+          "settings": {
+            "label": "Jackets"
+          },
+          "blocks": {
+            "static-product-card": {
+              "type": "_product-card",
+              "static": true,
+              "settings": {
+                "product_card_gap": 4
+              },
+              "blocks": {
+                "gallery": {
+                  "type": "_product-card-gallery",
+                  "settings": {
+                    "image_ratio": "portrait"
+                  }
+                },
+                "title": {
+                  "type": "product-title"
+                },
+                "price": {
+                  "type": "price"
+                },
+                "swatches": {
+                  "type": "swatches"
+                }
+              },
+              "block_order": ["gallery", "title", "price", "swatches"]
+            }
+          }
+        }
+      },
+      "block_order": ["tab_1", "tab_2", "tab_3", "tab_4"]
+    }
+  ]
+}
+{% endschema %}
