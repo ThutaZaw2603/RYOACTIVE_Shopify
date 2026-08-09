@@ -55,10 +55,18 @@
 </div>
 
 {% stylesheet %}
+  /* Box the section's background color to match the page-width content instead of bleeding edge-to-edge.
+     Selector matches base.css's `.shopify-section:not(.header-section) .section-background` specificity so it actually wins the cascade.
+     Desktop only — mobile stays full-bleed. */
+  @media screen and (min-width: 750px) {
+    .shopify-section:not(.header-section) .section-background:has(+ .section--page-width) {
+      inset-inline: max(var(--page-margin), calc((100% - var(--page-width)) / 2));
+    }
+  }
+
   .section--page-width {
     &.media-with-content {
-      grid-template-areas: 'margin-left media margin-right' 'margin-left content margin-right';
-
+      /* Mobile stays full-bleed (inherits the base .media-with-content mobile layout); the margined layout only kicks in at desktop */
       @media screen and (min-width: 750px) {
         /* Wide proportion is media 3.5 parts, content 2.5 parts. Which equals 7|5. So divide the central column by 7+5 and multiply accordingly */
         --media-with-content-grid-columns: var(--full-page-grid-margin)
@@ -184,17 +192,17 @@
       }
     }
 
-    &.section--page-width .media-with-content__content > .group-block-content {
-      padding-inline: 0;
-
-      @media screen and (min-width: 750px) {
+    /* Zeroing the outer padding is desktop-only — the grid gutters supply the margin there. Mobile keeps the base padding above since it's full-bleed. */
+    @media screen and (min-width: 750px) {
+      &.section--page-width .media-with-content__content > .group-block-content {
+        padding-inline: 0;
         padding-inline-start: var(--page-margin);
       }
-    }
 
-    &.section--page-width.media-with-content--media-right .media-with-content__content > .group-block-content {
-      padding-inline-end: var(--page-margin);
-      padding-inline-start: 0;
+      &.section--page-width.media-with-content--media-right .media-with-content__content > .group-block-content {
+        padding-inline-end: var(--page-margin);
+        padding-inline-start: 0;
+      }
     }
   }
 

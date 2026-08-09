@@ -1996,8 +1996,8 @@
         "media_position": "left",
         "media_width": "medium",
         "media_height": "60svh",
-        "section_width": "full-width",
-        "extend_media": true,
+        "section_width": "page-width",
+        "extend_media": false,
         "background_color": "#E3EEF3",
         "padding-block-start": 0,
         "padding-block-end": 0
