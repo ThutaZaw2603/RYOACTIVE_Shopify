@@ -1702,10 +1702,10 @@
       "name": "Shop by activities Section",
       "settings": {
         "collection_list": [
-          "shorts",
           "limited-edition",
           "leggings",
-          "jackets"
+          "jackets",
+          "active-and-performance-copy"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
@@ -1731,7 +1731,7 @@
         "tab_1": {
           "type": "tab",
           "settings": {
-            "collection": "leggings",
+            "collection": "",
             "label": "Leggings"
           },
           "blocks": {
@@ -1845,7 +1845,7 @@
         "tab_2": {
           "type": "tab",
           "settings": {
-            "collection": "shorts",
+            "collection": "",
             "label": "Shorts"
           },
           "blocks": {
@@ -2073,7 +2073,7 @@
         "tab_4": {
           "type": "tab",
           "settings": {
-            "collection": "jackets",
+            "collection": "",
             "label": "Jackets"
           },
           "blocks": {
@@ -3559,6 +3559,76 @@
     "product_hotspots_mbtx3j": {
       "type": "product-hotspots",
       "blocks": {
+        "hotspot_image_column_mzwmMy": {
+          "type": "_hotspot-image-column",
+          "settings": {
+            "image": "shopify://shop_images/Two_women_walking_outdoors_2K_202608101837.jpg",
+            "aspect_ratio": "portrait",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top"
+          },
+          "blocks": {
+            "hotspot_product_tQjjEQ": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 40,
+                "y-position": 40
+              },
+              "blocks": {}
+            },
+            "hotspot_product_GxFjQw": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 60,
+                "y-position": 60
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "hotspot_product_tQjjEQ",
+            "hotspot_product_GxFjQw"
+          ]
+        },
+        "hotspot_image_column_CGQtHr": {
+          "type": "_hotspot-image-column",
+          "settings": {
+            "image": "shopify://shop_images/Two_models_posing_on_street_202608101812.jpg",
+            "aspect_ratio": "portrait",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top"
+          },
+          "blocks": {
+            "hotspot_product_EYx7Pn": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 40,
+                "y-position": 40
+              },
+              "blocks": {}
+            },
+            "hotspot_product_98qjGx": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 60,
+                "y-position": 60
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "hotspot_product_EYx7Pn",
+            "hotspot_product_98qjGx"
+          ]
+        },
         "hotspot_column_wXQ2vT": {
           "type": "_hotspot-image-column",
           "settings": {
@@ -3594,74 +3664,6 @@
             "hotspot_product_tNnGkC"
           ]
         },
-        "hotspot_image_column_CGQtHr": {
-          "type": "_hotspot-image-column",
-          "settings": {
-            "aspect_ratio": "portrait",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top"
-          },
-          "blocks": {
-            "hotspot_product_EYx7Pn": {
-              "type": "_hotspot-product",
-              "settings": {
-                "product": "",
-                "x-position": 40,
-                "y-position": 40
-              },
-              "blocks": {}
-            },
-            "hotspot_product_98qjGx": {
-              "type": "_hotspot-product",
-              "settings": {
-                "product": "",
-                "x-position": 60,
-                "y-position": 60
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "hotspot_product_EYx7Pn",
-            "hotspot_product_98qjGx"
-          ]
-        },
-        "hotspot_image_column_mzwmMy": {
-          "type": "_hotspot-image-column",
-          "settings": {
-            "aspect_ratio": "portrait",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top"
-          },
-          "blocks": {
-            "hotspot_product_tQjjEQ": {
-              "type": "_hotspot-product",
-              "settings": {
-                "product": "",
-                "x-position": 40,
-                "y-position": 40
-              },
-              "blocks": {}
-            },
-            "hotspot_product_GxFjQw": {
-              "type": "_hotspot-product",
-              "settings": {
-                "product": "",
-                "x-position": 60,
-                "y-position": 60
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "hotspot_product_tQjjEQ",
-            "hotspot_product_GxFjQw"
-          ]
-        },
         "heading": {
           "type": "text",
           "name": "t:names.heading",
@@ -3691,9 +3693,9 @@
         }
       },
       "block_order": [
-        "hotspot_column_wXQ2vT",
+        "hotspot_image_column_mzwmMy",
         "hotspot_image_column_CGQtHr",
-        "hotspot_image_column_mzwmMy"
+        "hotspot_column_wXQ2vT"
       ],
       "name": "t:names.product_hotspots",
       "settings": {
