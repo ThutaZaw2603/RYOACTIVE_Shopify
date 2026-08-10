@@ -1,0 +1,247 @@
+
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+    spacing-style
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="fabric-showcase"
+>
+  <div class="fabric-showcase__header">
+    <div class="fabric-showcase__heading-group">
+      {% if section.settings.eyebrow != blank %}
+        <p class="fabric-showcase__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="fabric-showcase__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="button fabric-showcase__button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="fabric-showcase__cards gap-style" style="{% render 'gap-style', value: section.settings.cards_gap %}">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .fabric-showcase__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-lg, 20px);
+    flex-wrap: wrap;
+    padding-block-end: 32px;
+  }
+
+  .fabric-showcase__heading-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fabric-showcase__eyebrow {
+    margin: 0;
+    font-size: var(--font-size--sm);
+    text-transform: uppercase;
+  }
+
+  .fabric-showcase__heading {
+    margin: 0;
+  }
+
+  .fabric-showcase__button {
+    flex-shrink: 0;
+  }
+
+  .fabric-showcase__cards {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+
+  .fabric-showcase__cards > * {
+    flex: 1 1 0;
+    min-width: 240px;
+  }
+
+  /* media-with-content.liquid boxes .section-background to page-width for every
+     section using this background-div + page-width pattern (see its stylesheet).
+     This section wants the opposite: full-bleed background with page-width content,
+     so override it back to edge-to-edge, scoped to this section only. */
+  @media screen and (min-width: 750px) {
+    .shopify-section.ui-test-fabric-showcase:not(.header-section) .section-background:has(+ .section--page-width) {
+      inset-inline: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Fabric showcase",
+  "class": "ui-test-fabric-showcase",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "fabric-card"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.text"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Instant classics"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:settings.heading",
+      "default": "Meet the fabric of our premium quality"
+    },
+    {
+      "type": "header",
+      "content": "t:content.block_link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:settings.label",
+      "default": "Read about our fabric"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:settings.link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.cards_layout"
+    },
+    {
+      "type": "range",
+      "id": "cards_gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric showcase",
+      "category": "t:categories.storytelling",
+      "blocks": {
+        "fabric-card-1": {
+          "type": "fabric-card",
+          "settings": {
+            "title": "Performance Chiffon",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_label": "Light as Air",
+            "tag_3_label": "Sleek Feel"
+          }
+        },
+        "fabric-card-2": {
+          "type": "fabric-card",
+          "settings": {
+            "title": "FlexForm",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_label": "Light as Air",
+            "tag_3_label": "Sleek Feel"
+          }
+        },
+        "fabric-card-3": {
+          "type": "fabric-card",
+          "settings": {
+            "title": "VelvetCore",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_label": "Light as Air",
+            "tag_3_label": "Sleek Feel"
+          }
+        }
+      },
+      "block_order": ["fabric-card-1", "fabric-card-2", "fabric-card-3"]
+    }
+  ]
+}
+{% endschema %}

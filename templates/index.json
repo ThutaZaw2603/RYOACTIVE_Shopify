@@ -77,6 +77,7 @@
       "settings": {
         "media_type_1": "video",
         "media_type_2": "image",
+        "image_2": "shopify://shop_images/Models_posing_for_photo_recreation_202608101109.png",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
@@ -2204,7 +2205,7 @@
         "section_width": "page-width",
         "background_color": "",
         "padding-block-start": 32,
-        "padding-block-end": 40
+        "padding-block-end": 32
       }
     },
     "product_list_4jqyPz": {
@@ -3553,6 +3554,88 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "fabric_showcase_WeLhce": {
+      "type": "fabric-showcase",
+      "blocks": {
+        "fabric_card_gXMyAC": {
+          "type": "fabric-card",
+          "settings": {
+            "image": "shopify://shop_images/image_21.png",
+            "aspect_ratio": "square",
+            "toggle_overlay": true,
+            "overlay_color": "#00000080",
+            "overlay_style": "gradient",
+            "gradient_direction": "to top",
+            "title": "Performance Chiffon",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_icon": "none",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_icon": "none",
+            "tag_2_label": "Light as Air",
+            "tag_3_icon": "none",
+            "tag_3_label": "Sleek Feel"
+          },
+          "blocks": {}
+        },
+        "fabric_card_AbwQqy": {
+          "type": "fabric-card",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "aspect_ratio": "square",
+            "toggle_overlay": true,
+            "overlay_color": "#00000080",
+            "overlay_style": "gradient",
+            "gradient_direction": "to top",
+            "title": "FlexForm",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_icon": "none",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_icon": "none",
+            "tag_2_label": "Light as Air",
+            "tag_3_icon": "none",
+            "tag_3_label": "Sleek Feel"
+          },
+          "blocks": {}
+        },
+        "fabric_card_gU47Ek": {
+          "type": "fabric-card",
+          "settings": {
+            "image": "shopify://shop_images/image_22.png",
+            "aspect_ratio": "square",
+            "toggle_overlay": true,
+            "overlay_color": "#00000080",
+            "overlay_style": "gradient",
+            "gradient_direction": "to top",
+            "title": "VelvetCore",
+            "description": "Gives a nod to its durability while sounding delicate and high-end.",
+            "tag_1_icon": "none",
+            "tag_1_label": "Smoothing Fit",
+            "tag_2_icon": "none",
+            "tag_2_label": "Light as Air",
+            "tag_3_icon": "none",
+            "tag_3_label": "Sleek Feel"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "fabric_card_gXMyAC",
+        "fabric_card_AbwQqy",
+        "fabric_card_gU47Ek"
+      ],
+      "name": "Fabric showcase",
+      "settings": {
+        "eyebrow": "Instant classics",
+        "heading": "Meet the fabric of our premium quality",
+        "button_label": "Read about our fabric",
+        "button_link": "",
+        "cards_gap": 16,
+        "section_width": "page-width",
+        "background_color": "#eceadd",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
@@ -3564,6 +3647,7 @@
     "shop_by_tabs",
     "product_list_4jqyPz",
     "media_with_content_DEPLX9",
-    "carousel_LXBVpJ"
+    "carousel_LXBVpJ",
+    "fabric_showcase_WeLhce"
   ]
 }
