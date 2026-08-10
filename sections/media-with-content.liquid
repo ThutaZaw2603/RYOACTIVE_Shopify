@@ -56,10 +56,12 @@
 
 {% stylesheet %}
   /* Box the section's background color to match the page-width content instead of bleeding edge-to-edge.
+     Scoped to .media-with-content so this doesn't affect other sections that share the same
+     .section-background + .section--page-width markup (they should stay full-bleed by default).
      Selector matches base.css's `.shopify-section:not(.header-section) .section-background` specificity so it actually wins the cascade.
      Desktop only — mobile stays full-bleed. */
   @media screen and (min-width: 750px) {
-    .shopify-section:not(.header-section) .section-background:has(+ .section--page-width) {
+    .shopify-section:not(.header-section) .section-background:has(+ .section--page-width.media-with-content) {
       inset-inline: max(var(--page-margin), calc((100% - var(--page-width)) / 2));
     }
   }

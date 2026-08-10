@@ -83,16 +83,6 @@
     flex: 1 1 0;
     min-width: 240px;
   }
-
-  /* media-with-content.liquid boxes .section-background to page-width for every
-     section using this background-div + page-width pattern (see its stylesheet).
-     This section wants the opposite: full-bleed background with page-width content,
-     so override it back to edge-to-edge, scoped to this section only. */
-  @media screen and (min-width: 750px) {
-    .shopify-section.ui-test-fabric-showcase:not(.header-section) .section-background:has(+ .section--page-width) {
-      inset-inline: 0;
-    }
-  }
 {% endstylesheet %}
 
 {% schema %}

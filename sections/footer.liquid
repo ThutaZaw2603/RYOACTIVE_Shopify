@@ -18,6 +18,10 @@
     # Grid layout calculations
     assign grid_columns = total_blocks | at_most: 4
 
+    if section.settings.menu_layout == 'stack'
+      assign grid_columns = 1
+    endif
+
     # Calculate last row counts using modulo arithmetic
     # last_row_count = (total_blocks - 1) % N + 1
     assign last_row_count = total_blocks | minus: 1 | modulo: 4 | plus: 1
@@ -166,6 +170,22 @@
         }
       ],
       "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "menu_layout",
+      "label": "t:settings.layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:options.grid"
+        },
+        {
+          "value": "stack",
+          "label": "t:options.stack"
+        }
+      ],
+      "default": "grid"
     },
     {
       "type": "range",
