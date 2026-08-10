@@ -3559,23 +3559,108 @@
     "product_hotspots_mbtx3j": {
       "type": "product-hotspots",
       "blocks": {
-        "hotspot_product_jYgFUt": {
-          "type": "_hotspot-product",
+        "hotspot_column_wXQ2vT": {
+          "type": "_hotspot-image-column",
           "settings": {
-            "product": "",
-            "x-position": 40,
-            "y-position": 40
+            "image": "shopify://shop_images/Woman_holding_coffee_in_cafe_202608101758.jpg",
+            "aspect_ratio": "portrait",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top"
           },
-          "blocks": {}
+          "blocks": {
+            "hotspot_product_jYgFUt": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "active-shorts-1",
+                "x-position": 59,
+                "y-position": 48
+              },
+              "blocks": {}
+            },
+            "hotspot_product_tNnGkC": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "suede-lyra-shorts",
+                "x-position": 55,
+                "y-position": 63
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "hotspot_product_jYgFUt",
+            "hotspot_product_tNnGkC"
+          ]
         },
-        "hotspot_product_tNnGkC": {
-          "type": "_hotspot-product",
+        "hotspot_image_column_CGQtHr": {
+          "type": "_hotspot-image-column",
           "settings": {
-            "product": "",
-            "x-position": 60,
-            "y-position": 60
+            "aspect_ratio": "portrait",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top"
           },
-          "blocks": {}
+          "blocks": {
+            "hotspot_product_EYx7Pn": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 40,
+                "y-position": 40
+              },
+              "blocks": {}
+            },
+            "hotspot_product_98qjGx": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 60,
+                "y-position": 60
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "hotspot_product_EYx7Pn",
+            "hotspot_product_98qjGx"
+          ]
+        },
+        "hotspot_image_column_mzwmMy": {
+          "type": "_hotspot-image-column",
+          "settings": {
+            "aspect_ratio": "portrait",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top"
+          },
+          "blocks": {
+            "hotspot_product_tQjjEQ": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 40,
+                "y-position": 40
+              },
+              "blocks": {}
+            },
+            "hotspot_product_GxFjQw": {
+              "type": "_hotspot-product",
+              "settings": {
+                "product": "",
+                "x-position": 60,
+                "y-position": 60
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "hotspot_product_tQjjEQ",
+            "hotspot_product_GxFjQw"
+          ]
         },
         "heading": {
           "type": "text",
@@ -3586,7 +3671,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h4",
+            "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -3606,17 +3691,14 @@
         }
       },
       "block_order": [
-        "hotspot_product_jYgFUt",
-        "hotspot_product_tNnGkC"
+        "hotspot_column_wXQ2vT",
+        "hotspot_image_column_CGQtHr",
+        "hotspot_image_column_mzwmMy"
       ],
       "name": "t:names.product_hotspots",
       "settings": {
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
         "section_width": "page-width",
-        "section_height": "auto",
+        "columns_gap": 16,
         "hotspot_color": "#ffffff57",
         "bullseye_color": "#ffffff",
         "background_color": "",
