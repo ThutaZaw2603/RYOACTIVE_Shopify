@@ -3569,11 +3569,11 @@
             "gradient_direction": "to top",
             "title": "Performance Chiffon",
             "description": "Gives a nod to its durability while sounding delicate and high-end.",
-            "tag_1_icon": "none",
+            "tag_1_icon": "heart",
             "tag_1_label": "Smoothing Fit",
-            "tag_2_icon": "none",
+            "tag_2_icon": "recycle",
             "tag_2_label": "Light as Air",
-            "tag_3_icon": "none",
+            "tag_3_icon": "leaf",
             "tag_3_label": "Sleek Feel"
           },
           "blocks": {}
@@ -3589,11 +3589,11 @@
             "gradient_direction": "to top",
             "title": "FlexForm",
             "description": "Gives a nod to its durability while sounding delicate and high-end.",
-            "tag_1_icon": "none",
+            "tag_1_icon": "gluten_free",
             "tag_1_label": "Smoothing Fit",
-            "tag_2_icon": "none",
+            "tag_2_icon": "lightning_bolt",
             "tag_2_label": "Light as Air",
-            "tag_3_icon": "none",
+            "tag_3_icon": "box",
             "tag_3_label": "Sleek Feel"
           },
           "blocks": {}
@@ -3609,11 +3609,11 @@
             "gradient_direction": "to top",
             "title": "VelvetCore",
             "description": "Gives a nod to its durability while sounding delicate and high-end.",
-            "tag_1_icon": "none",
+            "tag_1_icon": "leather",
             "tag_1_label": "Smoothing Fit",
-            "tag_2_icon": "none",
+            "tag_2_icon": "perfume",
             "tag_2_label": "Light as Air",
-            "tag_3_icon": "none",
+            "tag_3_icon": "heart",
             "tag_3_label": "Sleek Feel"
           },
           "blocks": {}
@@ -3629,7 +3629,7 @@
         "eyebrow": "Instant classics",
         "heading": "Meet the fabric of our premium quality",
         "button_label": "Read about our fabric",
-        "button_link": "",
+        "button_link": "/pages/febric",
         "cards_gap": 16,
         "section_width": "page-width",
         "background_color": "#eceadd",
