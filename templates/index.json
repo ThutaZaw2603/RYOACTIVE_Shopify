@@ -12,6 +12,58 @@
     "hero_rhMed7": {
       "type": "hero",
       "blocks": {
+        "text_dTE9aN": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h1>The Art of <br/>Modern Style</h1>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_mC8RcD": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Discover the latest trends and timeless pieces that define contemporary fashion. From runway to everyday wear, explore what makes style truly personal.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "spacer_iqNMWF": {
           "type": "spacer",
           "name": "t:names.spacer",
@@ -29,9 +81,10 @@
         "logo_38acff": {
           "type": "logo",
           "name": "t:names.logo",
+          "disabled": true,
           "settings": {
             "inverse": true,
-            "font": "heading",
+            "font": "subheading",
             "text_color": "",
             "unit": "pixel",
             "percent_width": 100,
@@ -54,12 +107,12 @@
             "label": "Shop now",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
-            "style_class": "button-unstyled",
+            "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
             "custom_button_text": "{{ settings.color_palette.background }}",
             "custom_button_border": "{{ settings.color_palette.background }}",
             "link_text_color": "",
-            "width": "custom",
+            "width": "fit-content",
             "custom_width": 15,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
@@ -69,6 +122,8 @@
         }
       },
       "block_order": [
+        "text_dTE9aN",
+        "text_mC8RcD",
         "spacer_iqNMWF",
         "logo_38acff",
         "button_3cL8kq"
@@ -89,9 +144,9 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "space-between",
-        "gap": 32,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
         "section_width": "page-width",
         "section_height": "full-screen",
         "section_height_custom": 50,
@@ -1702,10 +1757,10 @@
       "name": "Shop by activities Section",
       "settings": {
         "collection_list": [
-          "limited-edition",
-          "leggings",
-          "jackets",
-          "active-and-performance-copy"
+          "active-and-performance-copy",
+          "outdoor-and-adventure-copy",
+          "trending-copy",
+          "tredning"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
@@ -1845,7 +1900,7 @@
         "tab_2": {
           "type": "tab",
           "settings": {
-            "collection": "",
+            "collection": "shorts",
             "label": "Shorts"
           },
           "blocks": {
@@ -2073,7 +2128,7 @@
         "tab_4": {
           "type": "tab",
           "settings": {
-            "collection": "",
+            "collection": "jackets",
             "label": "Jackets"
           },
           "blocks": {
