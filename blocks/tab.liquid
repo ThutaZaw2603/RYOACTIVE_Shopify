@@ -122,6 +122,51 @@
       display: none;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    .shop-tabs__tab {
+      /* Group every tab chip ahead of the (single visible) panel regardless
+         of their interleaved DOM order (tab, panel, tab, panel, ...), so the
+         wrapped chip row stays together above the carousel instead of the
+         panel landing in the middle of it. */
+      order: 1;
+      flex: 0 0 auto;
+      width: auto;
+      text-align: center;
+      font-size: var(--font-size--sm);
+      padding: var(--padding-xs) var(--padding-md);
+      border-radius: var(--style-border-radius-pills);
+      background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
+      opacity: 1;
+
+      &[aria-selected='true'] {
+        background-color: var(--color-primary-button-background);
+        color: var(--color-primary-button-text);
+      }
+    }
+
+    .shop-tabs__panel {
+      /* Undo the desktop absolute-positioning trick: at mobile the panel sits
+         in normal flow below the wrapped tab chips instead of overlaying a
+         reserved grid cell next to a sidebar. */
+      position: static;
+      inset: unset;
+      /* flex-basis: 100% forces this onto its own line after every order: 1
+         tab chip, however many wrap onto the row above. */
+      order: 2;
+      flex: 1 0 100%;
+
+      /* Widen the peeking carousel card and drop the arrows in favor of
+         native swipe, matching every other mobile carousel's touch target. */
+      .resource-list__carousel {
+        --mobile-card-size: 72cqw;
+      }
+
+      slideshow-arrows {
+        display: none;
+      }
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}

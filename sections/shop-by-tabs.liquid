@@ -69,6 +69,26 @@
     justify-self: start;
     margin-block-start: var(--gap-lg, 20px);
   }
+
+  @media screen and (max-width: 749px) {
+    .shop-tabs__heading {
+      padding-block-end: 12px;
+    }
+
+    shop-tabs-component {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: var(--gap-xs);
+      row-gap: var(--gap-md);
+      min-height: 0;
+    }
+
+    .shop-tabs__shop-all {
+      order: 3;
+      flex: 1 0 100%;
+      justify-self: unset;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
