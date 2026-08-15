@@ -4,6 +4,8 @@
   if section.settings.background_color != blank
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
+
+  assign carousel_slideshow_target = '#carousel-slideshow-' | append: section.id
 %}
 
 <div
@@ -24,10 +26,70 @@
   "
   data-testid="carousel-section"
 >
-  {% content_for 'block', type: 'group', id: 'static-header' %}
+  <div class="carousel-heading-row">
+    {% content_for 'block', type: 'group', id: 'static-header' %}
+
+    {% unless section.settings.icons_style == 'none' %}
+      <div class="carousel-mobile-arrows">
+        {% render 'slideshow-arrow',
+          action: 'previous',
+          icon_style: section.settings.icons_style,
+          icon_shape: section.settings.icons_shape,
+          target: carousel_slideshow_target
+        %}
+        {% render 'slideshow-arrow',
+          action: 'next',
+          icon_style: section.settings.icons_style,
+          icon_shape: section.settings.icons_shape,
+          target: carousel_slideshow_target
+        %}
+      </div>
+    {% endunless %}
+  </div>
 
   {% content_for 'block', type: '_carousel-content', id: 'static-carousel-content', closest.product: null %}
 </div>
+
+{% stylesheet %}
+  .carousel-heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--padding-sm);
+  }
+
+  .carousel-heading-row > .group-block {
+    min-width: 0;
+  }
+
+  .carousel-mobile-arrows {
+    display: none;
+    flex: 0 0 auto;
+    gap: var(--padding-2xs);
+  }
+
+  @media screen and (max-width: 749px) {
+    .carousel-mobile-arrows {
+      display: flex;
+    }
+  }
+
+  .carousel-mobile-arrows .slideshow-control {
+    position: static;
+    opacity: 1;
+    width: var(--minimum-touch-target);
+    height: var(--minimum-touch-target);
+    min-width: var(--minimum-touch-target);
+    min-height: var(--minimum-touch-target);
+    border: 1px solid #dcdfe5;
+  }
+
+  .carousel-mobile-arrows .slideshow-control.slideshow-control--shape-circle,
+  .carousel-mobile-arrows .slideshow-control.slideshow-control--shape-square {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+{% endstylesheet %}
 
 {% schema %}
 {

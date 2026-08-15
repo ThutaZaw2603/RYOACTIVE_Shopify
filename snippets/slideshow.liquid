@@ -23,6 +23,7 @@
   @param {string} [arrows_position] - The position of the arrows, defaults to 'bottom'
   @param {string} [attributes] - Additional attributes to add to the slideshow component
   @param {boolean} [header] - The title of the slideshow
+  @param {string} [id] - HTML id attribute of the slideshow component, allowing it to be targeted by controls rendered outside its own markup
 
   @example
   {% render 'slideshow', slides: slides, slide_count: collection.products.size, ref: 'mobileSlideshow' %}
@@ -77,6 +78,9 @@
 -%}
 
 <slideshow-component
+  {% if id != blank %}
+    id="{{ id }}"
+  {% endif %}
   {% if ref != blank %}
     ref="{{ ref }}"
   {% endif %}

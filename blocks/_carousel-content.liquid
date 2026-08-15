@@ -27,6 +27,8 @@
   if block.settings.height == 'fill'
     assign slide_position = 'stretch'
   endif
+
+  assign slideshow_id = 'carousel-slideshow-' | append: section.id
 -%}
 
 {% capture blocks_content %}
@@ -47,6 +49,7 @@
   style="{{ gutter_style }}"
 >
   {% render 'slideshow',
+    id: slideshow_id,
     class: slideshow_class,
     style: slideshow_style,
     slides: blocks_content,
