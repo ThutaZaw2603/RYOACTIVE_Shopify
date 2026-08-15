@@ -131,6 +131,31 @@
     },
     {
       "type": "select",
+      "id": "horizontal_alignment_mobile",
+      "label": "t:settings.alignment_mobile",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.default"
+        },
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "",
+      "visible_if": "{{ block.settings.content_direction != 'row' or block.settings.vertical_on_mobile }}"
+    },
+    {
+      "type": "select",
       "id": "vertical_alignment_flex_direction_column",
       "label": "t:settings.position",
       "options": [
