@@ -2636,7 +2636,7 @@
                   "settings": {
                     "text": "<p>Designed in styles and tones that endure the passing of time and the passing of fickle trends.Built for longevity and rooted in practicality, these pieces accompany you through every journey - whether close to home or around the world.</p>",
                     "width": "fit-content",
-                    "max_width": "narrow",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -3641,7 +3641,7 @@
             "hotspot_product_tQjjEQ": {
               "type": "_hotspot-product",
               "settings": {
-                "product": "",
+                "product": "aura-petal-crop-top",
                 "x-position": 40,
                 "y-position": 40
               },
@@ -3650,7 +3650,7 @@
             "hotspot_product_GxFjQw": {
               "type": "_hotspot-product",
               "settings": {
-                "product": "",
+                "product": "active-shorts-with-back-pockets",
                 "x-position": 60,
                 "y-position": 60
               },
@@ -3676,7 +3676,7 @@
             "hotspot_product_EYx7Pn": {
               "type": "_hotspot-product",
               "settings": {
-                "product": "",
+                "product": "aura-crest-cap-sleeve-top",
                 "x-position": 40,
                 "y-position": 40
               },
@@ -3685,7 +3685,7 @@
             "hotspot_product_98qjGx": {
               "type": "_hotspot-product",
               "settings": {
-                "product": "",
+                "product": "aura-sculpt-leggings",
                 "x-position": 60,
                 "y-position": 60
               },
