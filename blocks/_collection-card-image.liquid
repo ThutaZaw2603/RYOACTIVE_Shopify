@@ -70,6 +70,18 @@
       "visible_if": "{{ block.settings.image_ratio == 'fixed' }}"
     },
     {
+      "type": "range",
+      "id": "image_height_mobile",
+      "label": "Image height (mobile)",
+      "info": "Leave at 0 to use the same height as desktop on mobile.",
+      "min": 0,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.image_ratio == 'fixed' }}"
+    },
+    {
       "type": "checkbox",
       "id": "toggle_overlay",
       "label": "t:settings.media_overlay"

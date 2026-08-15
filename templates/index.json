@@ -1731,7 +1731,8 @@
               "static": true,
               "settings": {
                 "image_ratio": "fixed",
-                "image_height": 500,
+                "image_height": 460,
+                "image_height_mobile": 300,
                 "toggle_overlay": true,
                 "overlay_color": "#0000001a",
                 "overlay_hover_color": "#00000033",
@@ -1773,6 +1774,7 @@
         "max_collections": 4,
         "icons_style": "arrow",
         "icons_shape": "none",
+        "mobile_full_width_grid": true,
         "section_width": "page-width",
         "gap": 12,
         "background_color": "",

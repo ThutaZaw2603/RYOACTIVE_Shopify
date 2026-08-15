@@ -133,6 +133,13 @@
         aspect-ratio: auto;
         height: {{ block_settings.image_height | default: 500 }}px;
       }
+      {% if block_settings.image_height_mobile > 0 %}
+        @media screen and (max-width: 749px) {
+          .collection-card[data-block-id="{{ parent_block_id }}"].collection-card--image-bg {
+            height: {{ block_settings.image_height_mobile }}px;
+          }
+        }
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endstyle %}

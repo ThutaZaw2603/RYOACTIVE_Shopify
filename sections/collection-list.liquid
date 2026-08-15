@@ -302,6 +302,14 @@
       "visible_if": "{{ section.settings.icons_style != 'none' and section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
     },
     {
+      "type": "checkbox",
+      "id": "mobile_full_width_grid",
+      "label": "Full width grid on mobile",
+      "info": "Removes the left/right page margin around the card grid on mobile only. The heading stays inset.",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type == 'grid' or section.settings.layout_type == 'bento' }}"
+    },
+    {
       "type": "header",
       "content": "t:content.section_layout"
     },
