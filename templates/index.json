@@ -1732,7 +1732,7 @@
               "settings": {
                 "image_ratio": "fixed",
                 "image_height": 460,
-                "image_height_mobile": 300,
+                "image_height_mobile": 350,
                 "toggle_overlay": true,
                 "overlay_color": "#0000001a",
                 "overlay_hover_color": "#00000033",
@@ -1770,7 +1770,7 @@
         "mobile_card_size": "60cqw",
         "columns_gap": 0,
         "bento_gap": 8,
-        "rows_gap": 8,
+        "rows_gap": 0,
         "max_collections": 4,
         "icons_style": "arrow",
         "icons_shape": "none",
