@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>The Art of <br/>Modern Style</h1>",
+            "text": "<h1>Made for <br/>Everyday Movement</h1>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Discover the latest trends and timeless pieces that define contemporary fashion. From runway to everyday wear, explore what makes style truly personal.</p>",
+            "text": "<p>Your workout set just became your all-day outfit. Designed with buttery-soft fabrics that move with you, bringing total comfort wherever your weekend takes you.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -104,7 +104,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop now",
+            "label": "Find Yours",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
@@ -410,7 +410,7 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
-                "link": "",
+                "link": "shopify://products/aura-crest-cap-sleeve-top",
                 "open_in_new_tab": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -422,7 +422,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "aura-crest-cap-sleeve-top",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -564,7 +564,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "aura-sculpt-leggings",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -706,7 +706,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "suede-essence-bra",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -848,7 +848,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "suede-lyric-zip-jacket",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -990,7 +990,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "suede-lyra-shorts",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -1112,7 +1112,7 @@
       "name": "New Arrivals Section",
       "settings": {
         "columns": 4,
-        "mobile_columns": "2",
+        "mobile_columns": "1",
         "section_width": "page-width",
         "columns_gap": 12,
         "peek_next_slide": 0,
@@ -1783,120 +1783,6 @@
     "shop_by_tabs": {
       "type": "shop-by-tabs",
       "blocks": {
-        "tab_1": {
-          "type": "tab",
-          "settings": {
-            "collection": "",
-            "label": "Leggings"
-          },
-          "blocks": {
-            "static-product-card": {
-              "type": "_product-card",
-              "name": "t:names.product_card",
-              "static": true,
-              "settings": {
-                "product_card_gap": 4,
-                "background_color": "",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "gallery": {
-                  "type": "_product-card-gallery",
-                  "settings": {
-                    "image_ratio": "portrait",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_color": "",
-                    "border_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "title": {
-                  "type": "product-title",
-                  "name": "t:names.product_title",
-                  "settings": {
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "paragraph",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 4,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "price": {
-                  "type": "price",
-                  "name": "t:names.product_price",
-                  "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "h6",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "text_color": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "swatches": {
-                  "type": "swatches",
-                  "name": "t:names.swatches",
-                  "settings": {
-                    "product_swatches_alignment": "flex-start",
-                    "product_swatches_alignment_mobile": "flex-start",
-                    "hide_padding": false,
-                    "product_swatches_padding_top": 8,
-                    "product_swatches_padding_bottom": 0,
-                    "product_swatches_padding_left": 0,
-                    "product_swatches_padding_right": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "gallery",
-                "title",
-                "price",
-                "swatches"
-              ]
-            }
-          },
-          "block_order": []
-        },
         "tab_2": {
           "type": "tab",
           "settings": {
@@ -2011,10 +1897,124 @@
           },
           "block_order": []
         },
+        "tab_1": {
+          "type": "tab",
+          "settings": {
+            "collection": "leggings",
+            "label": "Leggings"
+          },
+          "blocks": {
+            "static-product-card": {
+              "type": "_product-card",
+              "name": "t:names.product_card",
+              "static": true,
+              "settings": {
+                "product_card_gap": 4,
+                "background_color": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "gallery": {
+                  "type": "_product-card-gallery",
+                  "settings": {
+                    "image_ratio": "portrait",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "title": {
+                  "type": "product-title",
+                  "name": "t:names.product_title",
+                  "settings": {
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price": {
+                  "type": "price",
+                  "name": "t:names.product_price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "h6",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "text_color": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "swatches": {
+                  "type": "swatches",
+                  "name": "t:names.swatches",
+                  "settings": {
+                    "product_swatches_alignment": "flex-start",
+                    "product_swatches_alignment_mobile": "flex-start",
+                    "hide_padding": false,
+                    "product_swatches_padding_top": 8,
+                    "product_swatches_padding_bottom": 0,
+                    "product_swatches_padding_left": 0,
+                    "product_swatches_padding_right": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "gallery",
+                "title",
+                "price",
+                "swatches"
+              ]
+            }
+          },
+          "block_order": []
+        },
         "tab_3": {
           "type": "tab",
           "settings": {
-            "collection": "",
+            "collection": "sports-bra",
             "label": "Top"
           },
           "blocks": {
@@ -2241,8 +2241,8 @@
         }
       },
       "block_order": [
-        "tab_1",
         "tab_2",
+        "tab_1",
         "tab_3",
         "tab_4"
       ],
@@ -2910,7 +2910,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "suede-blossom-deep-v-bra",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3052,7 +3052,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "sports-bra-with-contrast-racer-back-1",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3194,7 +3194,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "contrast-sports-bra-and-leggings-set",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3336,7 +3336,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "valen-plus-shorts",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3478,7 +3478,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "",
+                    "product": "aura-sculpt-leggings",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3600,7 +3600,7 @@
       "name": "Best Seller Section",
       "settings": {
         "columns": 4,
-        "mobile_columns": "2",
+        "mobile_columns": "1",
         "section_width": "page-width",
         "columns_gap": 12,
         "peek_next_slide": 0,
