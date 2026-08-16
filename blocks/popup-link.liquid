@@ -1,11 +1,29 @@
 
 
 {% assign block_settings = block.settings %}
+{% assign content_page_url = block_settings.content_page.url %}
+{% if block_settings.content_page_view != blank %}
+  {% assign content_page_url = content_page_url | append: '?view=' | append: block_settings.content_page_view %}
+{% endif %}
 
 <script
   src="{{ 'dialog.js' | asset_url }}"
   type="module"
 ></script>
+
+{% if block_settings.content_page != blank %}
+  <script
+    src="{{ 'remote-content.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  <script
+    src="{{ 'size-chart.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
+  {% render 'size-chart-styles' %}
+{% endif %}
 
 <dialog-component
   class="popup-link"
@@ -32,9 +50,13 @@
     >
       {{ block_settings.heading }}
     </h2>
-    <div class="popup-link__inner">
-      {% content_for 'blocks' %}
-    </div>
+    {% if block_settings.content_page != blank %}
+      <remote-content-component class="popup-link__inner" data-url="{{ content_page_url }}"></remote-content-component>
+    {% else %}
+      <div class="popup-link__inner">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
     <button
       ref="closeButton"
       on:click="/closeDialog"
@@ -129,6 +151,19 @@
         }
       ],
       "default": "default"
+    },
+    {
+      "type": "page",
+      "id": "content_page",
+      "label": "t:settings.page",
+      "info": "When set, shows this page's content instead of the blocks below."
+    },
+    {
+      "type": "text",
+      "id": "content_page_view",
+      "label": "Page template view (optional)",
+      "info": "Advanced: the alternate template suffix to render the page with (e.g. \"size-chart\" for a page.size-chart.json template), if different from the page's own assigned template.",
+      "visible_if": "{{ block.settings.content_page != blank }}"
     },
     {
       "type": "header",

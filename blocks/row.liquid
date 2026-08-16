@@ -1,0 +1,65 @@
+
+
+<tr {{ block.shopify_attributes }}>
+  <th scope="row">{{ block.settings.label }}</th>
+  {% for value in (1..4) %}
+    {% liquid
+      case value
+        when 1
+          assign cm_value = block.settings.value_1
+        when 2
+          assign cm_value = block.settings.value_2
+        when 3
+          assign cm_value = block.settings.value_3
+        when 4
+          assign cm_value = block.settings.value_4
+      endcase
+    %}
+    <td>
+      {% if cm_value != blank %}
+        <span data-unit-value="cm">{{ cm_value }} cm</span>
+        <span data-unit-value="in">{{ cm_value | times: 0.393701 | round: 1 }} in</span>
+      {% endif %}
+    </td>
+  {% endfor %}
+</tr>
+
+{% schema %}
+{
+  "name": "Measurement row",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Row label",
+      "default": "Length"
+    },
+    {
+      "type": "number",
+      "id": "value_1",
+      "label": "Value (cm)"
+    },
+    {
+      "type": "number",
+      "id": "value_2",
+      "label": "Value (cm)"
+    },
+    {
+      "type": "number",
+      "id": "value_3",
+      "label": "Value (cm)"
+    },
+    {
+      "type": "number",
+      "id": "value_4",
+      "label": "Value (cm)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Measurement row"
+    }
+  ]
+}
+{% endschema %}

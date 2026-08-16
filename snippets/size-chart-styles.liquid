@@ -1,0 +1,116 @@
+{%- doc -%}
+  Size chart styles consolidated into a single snippet for reliable CSS subsetting.
+  Rendered from both sections/size-chart.liquid (when the section renders directly)
+  and blocks/popup-link.liquid (when a size chart page's content is fetched and
+  injected into a popup on a different page), so styles are available in both cases.
+
+  @example
+  {% render 'size-chart-styles' %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  .size-chart {
+    display: block;
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+  }
+
+  .size-chart__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+    padding: var(--padding-md) var(--padding-lg);
+    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    font-weight: bold;
+  }
+
+  .size-chart__toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    padding: 2px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--color-foreground);
+    cursor: pointer;
+  }
+
+  .size-chart__toggle-knob {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-background);
+    transition: translate var(--animation-speed, 0.2s) ease;
+  }
+
+  .size-chart__toggle-switch[aria-pressed='true'] .size-chart__toggle-knob {
+    translate: 18px 0;
+  }
+
+  .size-chart__table-wrapper {
+    overflow-x: auto;
+  }
+
+  .size-chart__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .size-chart__table th,
+  .size-chart__table td {
+    padding: var(--padding-md);
+    border-bottom: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
+    white-space: nowrap;
+  }
+
+  .size-chart__table thead th {
+    font-weight: bold;
+    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+  }
+
+  .size-chart__table tbody th {
+    text-align: left;
+    font-weight: bold;
+    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+  }
+
+  .size-chart [data-unit-value='in'] {
+    display: none;
+  }
+
+  .size-chart[data-unit='in'] [data-unit-value='cm'] {
+    display: none;
+  }
+
+  .size-chart[data-unit='in'] [data-unit-value='in'] {
+    display: inline;
+  }
+
+  .size-chart__how-to-measure {
+    padding: var(--padding-xl) var(--padding-lg);
+    text-align: center;
+  }
+
+  .size-chart__how-to-measure-heading {
+    margin-block-end: var(--padding-lg);
+  }
+
+  .size-chart__how-to-measure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--padding-lg);
+  }
+
+  .size-chart__how-to-measure-label {
+    font-weight: bold;
+    margin-block-end: var(--padding-2xs);
+  }
+
+  .size-chart__how-to-measure-description {
+    color: var(--color-foreground-subdued, currentColor);
+  }
+{% endstylesheet %}

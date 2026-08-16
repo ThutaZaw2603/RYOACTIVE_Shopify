@@ -1,0 +1,252 @@
+
+
+<script
+  src="{{ 'size-chart.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% render 'size-chart-styles' %}
+
+<div
+  class="section section--{{ section.settings.section_width }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="size-chart"
+>
+  <size-chart-component class="size-chart" data-unit="cm">
+    <div class="size-chart__toggle">
+      <span class="size-chart__toggle-label">CM</span>
+      <button
+        type="button"
+        class="size-chart__toggle-switch"
+        on:click="/toggleUnit"
+        aria-pressed="false"
+        aria-label="Toggle measurement unit"
+      >
+        <span class="size-chart__toggle-knob"></span>
+      </button>
+      <span class="size-chart__toggle-label">IN</span>
+    </div>
+
+    <div class="size-chart__table-wrapper">
+      <table class="size-chart__table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{ section.settings.column_1 }}</th>
+            <th>{{ section.settings.column_2 }}</th>
+            <th>{{ section.settings.column_3 }}</th>
+            <th>{{ section.settings.column_4 }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% content_for 'blocks' %}
+        </tbody>
+      </table>
+    </div>
+
+    {% liquid
+      assign has_measure_steps = false
+      if section.settings.measure_1_label != blank or section.settings.measure_2_label != blank or section.settings.measure_3_label != blank or section.settings.measure_4_label != blank
+        assign has_measure_steps = true
+      endif
+    %}
+
+    {% if has_measure_steps %}
+      <div class="size-chart__how-to-measure">
+        <h3 class="size-chart__how-to-measure-heading">{{ section.settings.how_to_measure_heading }}</h3>
+        <div class="size-chart__how-to-measure-grid">
+          {% for i in (1..4) %}
+            {% liquid
+              case i
+                when 1
+                  assign step_label = section.settings.measure_1_label
+                  assign step_description = section.settings.measure_1_description
+                when 2
+                  assign step_label = section.settings.measure_2_label
+                  assign step_description = section.settings.measure_2_description
+                when 3
+                  assign step_label = section.settings.measure_3_label
+                  assign step_description = section.settings.measure_3_description
+                when 4
+                  assign step_label = section.settings.measure_4_label
+                  assign step_description = section.settings.measure_4_description
+              endcase
+            %}
+            {% if step_label != blank %}
+              <div class="size-chart__how-to-measure-item">
+                <p class="size-chart__how-to-measure-label">{{ step_label }}</p>
+                <p class="size-chart__how-to-measure-description">{{ step_description }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </size-chart-component>
+</div>
+
+{% schema %}
+{
+  "name": "Size chart",
+  "blocks": [
+    {
+      "type": "row"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "text",
+      "id": "column_1",
+      "label": "Column 1",
+      "default": "S"
+    },
+    {
+      "type": "text",
+      "id": "column_2",
+      "label": "Column 2",
+      "default": "M"
+    },
+    {
+      "type": "text",
+      "id": "column_3",
+      "label": "Column 3",
+      "default": "L"
+    },
+    {
+      "type": "text",
+      "id": "column_4",
+      "label": "Column 4",
+      "default": "XL"
+    },
+    {
+      "type": "header",
+      "content": "How to measure"
+    },
+    {
+      "type": "text",
+      "id": "how_to_measure_heading",
+      "label": "Heading",
+      "default": "How to measure"
+    },
+    {
+      "type": "text",
+      "id": "measure_1_label",
+      "label": "Item 1 label",
+      "default": "Chest"
+    },
+    {
+      "type": "textarea",
+      "id": "measure_1_description",
+      "label": "Item 1 description"
+    },
+    {
+      "type": "text",
+      "id": "measure_2_label",
+      "label": "Item 2 label",
+      "default": "Waist"
+    },
+    {
+      "type": "textarea",
+      "id": "measure_2_description",
+      "label": "Item 2 description"
+    },
+    {
+      "type": "text",
+      "id": "measure_3_label",
+      "label": "Item 3 label",
+      "default": "Hips"
+    },
+    {
+      "type": "textarea",
+      "id": "measure_3_description",
+      "label": "Item 3 description"
+    },
+    {
+      "type": "text",
+      "id": "measure_4_label",
+      "label": "Item 4 label",
+      "default": "Length"
+    },
+    {
+      "type": "textarea",
+      "id": "measure_4_description",
+      "label": "Item 4 description"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Size chart",
+      "settings": {
+        "measure_1_description": "Measure around the fullest part of your chest, keeping the tape horizontal.",
+        "measure_2_description": "Measure around your natural waistline, keeping the tape comfortably loose.",
+        "measure_3_description": "Measure around the fullest part of your hips, approximately 8\" below your waist.",
+        "measure_4_description": "Measure from the highest point of the shoulder to the desired hemline."
+      },
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": { "label": "Length", "value_1": 32, "value_2": 33, "value_3": 34, "value_4": 35 }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": { "label": "Chest", "value_1": 64, "value_2": 68, "value_3": 72, "value_4": 76 }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": { "label": "Hips", "value_1": 66, "value_2": 70, "value_3": 74, "value_4": 78 }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": { "label": "Waist", "value_1": 50, "value_2": 54, "value_3": 58, "value_4": 62 }
+        }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4"]
+    }
+  ]
+}
+{% endschema %}

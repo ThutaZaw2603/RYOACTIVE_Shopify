@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "main": {
+      "type": "size-chart",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": { "label": "Length", "value_1": 32, "value_2": 33, "value_3": 34, "value_4": 35 }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": { "label": "Chest", "value_1": 64, "value_2": 68, "value_3": 72, "value_4": 76 }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": { "label": "Hips", "value_1": 66, "value_2": 70, "value_3": 74, "value_4": 78 }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": { "label": "Waist", "value_1": 50, "value_2": 54, "value_3": 58, "value_4": 62 }
+        }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4"],
+      "settings": {
+        "measure_1_description": "Measure around the fullest part of your chest, keeping the tape horizontal.",
+        "measure_2_description": "Measure around your natural waistline, keeping the tape comfortably loose.",
+        "measure_3_description": "Measure around the fullest part of your hips, approximately 8\" below your waist.",
+        "measure_4_description": "Measure from the highest point of the shoulder to the desired hemline."
+      }
+    }
+  },
+  "order": ["main"]
+}
