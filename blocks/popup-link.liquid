@@ -114,6 +114,12 @@
     opacity: 0.8;
     animation: none;
   }
+
+  /* Injected page content already sits inside the dialog's own padding,
+     so cancel its page-width grid margins to avoid double insetting. */
+  .popup-link__inner .section--page-width > * {
+    grid-column: 1 / -1;
+  }
 {% endstylesheet %}
 
 {% schema %}
