@@ -568,7 +568,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "aura-sculpt-leggings",
+                    "product": "bb-activewear-yoga-jacket-1",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3065,7 +3065,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "sports-bra-with-contrast-racer-back-1",
+                    "product": "leggings-with-back-pockets-1",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,
@@ -3207,7 +3207,7 @@
                   "type": "product-card",
                   "name": "t:names.product_card",
                   "settings": {
-                    "product": "contrast-sports-bra-and-leggings-set",
+                    "product": "bb-sports-bra-and-running-shorts-set-1",
                     "product_card_gap": 4,
                     "width": "fill",
                     "custom_width": 100,

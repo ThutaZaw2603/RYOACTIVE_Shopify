@@ -515,6 +515,7 @@
                 },
                 "accordion_row_kmdwc8": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Size & Fit",
                     "open_by_default": false,
