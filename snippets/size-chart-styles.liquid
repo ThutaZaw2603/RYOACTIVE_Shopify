@@ -56,15 +56,20 @@
 
   .size-chart__table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     text-align: center;
   }
 
   .size-chart__table th,
   .size-chart__table td {
-    padding: var(--padding-md);
+    padding: var(--padding-sm) var(--padding-2xs);
     border-bottom: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10));
-    white-space: nowrap;
+  }
+
+  .size-chart__table th:first-child,
+  .size-chart__table td:first-child {
+    width: 28%;
   }
 
   .size-chart__table thead th {
