@@ -35,7 +35,6 @@
     style="{% render 'spacing-style', settings: block_settings %}"
   >
     {{- block_settings.heading }}
-    {{- 'icon-external.svg' | inline_asset_content -}}
   </button>
 
   <dialog
@@ -69,10 +68,8 @@
 </dialog-component>
 
 {% stylesheet %}
-  .popup-link__button svg {
-    display: inline-block;
-    position: relative;
-    top: var(--margin-2xs);
+  .popup-link__button {
+    text-decoration: underline;
   }
 
   .popup-link__content {
