@@ -171,10 +171,17 @@
     z-index: var(--layer-raised);
   }
 
+  /* product-card already provides its own full-card click-to-navigate link and
+     handles hover/swatch interaction internally, so the generic overlay link
+     above would otherwise block all of that - let clicks pass through to it. */
+  .card__link:has(~ .card__content product-card) {
+    pointer-events: none;
+  }
+
   .card__link ~ :is(.card__content, .card__media-wrapper) {
     pointer-events: none;
 
-    :is(a, button, input, textarea, select) {
+    :is(a, button, input, textarea, select, product-card) {
       pointer-events: auto;
     }
   }
