@@ -23,6 +23,13 @@
     fetchpriority="low"
   ></script>
   {% render 'size-chart-styles' %}
+  {% if block_settings.show_unit_toggle %}
+    <script
+      src="{{ 'unit-toggle.js' | asset_url }}"
+      type="module"
+      fetchpriority="low"
+    ></script>
+  {% endif %}
 {% endif %}
 
 <dialog-component
@@ -50,6 +57,21 @@
       {{ block_settings.heading }}
     </h2>
     {% if block_settings.content_page != blank %}
+      {% if block_settings.show_unit_toggle %}
+        <unit-toggle-component class="popup-link__unit-toggle" data-unit="cm">
+          <span class="popup-link__unit-toggle-label">CM</span>
+          <button
+            type="button"
+            class="popup-link__unit-toggle-switch"
+            on:click="/toggleUnit"
+            aria-pressed="false"
+            aria-label="Toggle measurement unit"
+          >
+            <span class="popup-link__unit-toggle-knob"></span>
+          </button>
+          <span class="popup-link__unit-toggle-label">IN</span>
+        </unit-toggle-component>
+      {% endif %}
       <remote-content-component class="popup-link__inner" data-url="{{ content_page_url }}"></remote-content-component>
     {% else %}
       <div class="popup-link__inner">
@@ -124,6 +146,50 @@
   .popup-link__inner .section--page-width > * {
     grid-column: 1 / -1;
   }
+
+  .popup-link__unit-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+    margin-block-end: var(--margin-lg);
+    font-weight: bold;
+  }
+
+  .popup-link__unit-toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    padding: 2px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--color-foreground);
+    cursor: pointer;
+  }
+
+  .popup-link__unit-toggle-knob {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-background);
+    transition: translate var(--animation-speed, 0.2s) ease;
+  }
+
+  .popup-link__unit-toggle-switch[aria-pressed='true'] .popup-link__unit-toggle-knob {
+    translate: 18px 0;
+  }
+
+  .popup-link__inner [data-unit-value='in'] {
+    display: none;
+  }
+
+  unit-toggle-component[data-unit='in'] ~ .popup-link__inner [data-unit-value='cm'] {
+    display: none;
+  }
+
+  unit-toggle-component[data-unit='in'] ~ .popup-link__inner [data-unit-value='in'] {
+    display: inline;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -170,6 +236,14 @@
       "id": "content_page_view",
       "label": "Page template view (optional)",
       "info": "Advanced: the alternate template suffix to render the page with (e.g. \"size-chart\" for a page.size-chart.json template), if different from the page's own assigned template.",
+      "visible_if": "{{ block.settings.content_page != blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_unit_toggle",
+      "label": "Show measurement unit toggle (cm/in)",
+      "info": "Scans the page content for numbers written like \"42 cm\" and lets shoppers switch them to inches.",
+      "default": true,
       "visible_if": "{{ block.settings.content_page != blank }}"
     },
     {
