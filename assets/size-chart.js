@@ -6,7 +6,7 @@ import { Component } from '@theme/component';
  */
 class SizeChart extends Component {
   toggleUnit(event) {
-    const button = event.currentTarget;
+    const button = event.target;
     const isInches = this.getAttribute('data-unit') === 'in';
     const nextUnit = isInches ? 'cm' : 'in';
 

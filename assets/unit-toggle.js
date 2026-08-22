@@ -13,7 +13,7 @@ class UnitToggle extends Component {
   #converted = false;
 
   toggleUnit(event) {
-    const button = event.currentTarget;
+    const button = event.target;
     const isInches = this.getAttribute('data-unit') === 'in';
     const nextUnit = isInches ? 'cm' : 'in';
 
