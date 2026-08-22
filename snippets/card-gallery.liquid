@@ -133,6 +133,17 @@
           assign other_media = product.media | reject: 'src', product.featured_media
           assign media_list_to_show = product.featured_media | concat: other_media
 
+          # The featured image is always shown regardless of variant tagging, so it doesn't
+          # count as a usable fallback for hover/next. Check specifically whether a generic
+          # image exists *after* it - if not, variant images must stay visible below so hover
+          # has something to reveal.
+          assign remaining_generic_count = 0
+          for media in media_list_to_show
+            unless forloop.first or variant_images contains media.src
+              assign remaining_generic_count = remaining_generic_count | plus: 1
+            endunless
+          endfor
+
           if product.media.size > 2 and generic_media_size > 0
             assign show_arrows = true
           endif
@@ -152,8 +163,10 @@
               if variant_images contains media.src
                 assign attributes = 'variant-image'
 
-                if forloop.first == false
-                  # hide all variant images that aren't the first one
+                if forloop.first == false and remaining_generic_count > 0
+                  # Hide all variant images that aren't the first one, but only when the
+                  # product has a generic (non-variant) image after the featured one to fall
+                  # back on - otherwise hover/next would have nothing left to show.
                   assign hidden = true
                 endif
               endif
