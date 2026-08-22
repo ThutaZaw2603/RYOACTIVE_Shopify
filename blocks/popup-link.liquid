@@ -45,7 +45,7 @@
   >
     <h2
       id="popup-dialog-heading"
-      class="{% if block_settings.content_page != blank %}popup-link__heading{% else %}visually-hidden{% endif %}"
+      class="visually-hidden"
     >
       {{ block_settings.heading }}
     </h2>
@@ -110,10 +110,6 @@
   /* Needed to ensure the drawer is full height */
   .popup-link__content--drawer:modal {
     max-height: 100dvh;
-  }
-
-  .popup-link__heading {
-    margin-block-end: var(--margin-lg);
   }
 
   .popup-link__close {
