@@ -194,15 +194,13 @@
   }
 
   /* Pages may paste in tables with a fixed 100%-width layout that only
-     fits desktop. Let those tables scroll horizontally on small screens
-     instead of squeezing every column unreadably. */
+     fits desktop. Shopify's rich-text renderer already wraps tables in
+     .rte-table-wrapper with overflow-x: auto (base.css) - just make sure
+     the table itself has room to be wider than its container instead of
+     squeezing columns, so that wrapper actually has something to scroll. */
   @media screen and (max-width: 749px) {
     .popup-link__inner table {
-      display: block;
       width: auto !important;
-      max-width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
       table-layout: auto !important;
     }
 
